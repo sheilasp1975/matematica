@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Primeros Pasos en Matemática – UPRIT</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="logo-uprit">🎓 UPRIT</div>
+  <h1>🌈 Mis Primeros Pasos en Matemática</h1>
+  <p>Aprendemos jugando – 1° de Primaria</p>
+</header>
+
+<!-- ══ NAVEGACIÓN ══ -->
+<nav>
+  <a href="#numeros">🔢 Números</a>
+  <a href="#suma">➕ Sumas</a>
+  <a href="#resta">➖ Restas</a>
+  <a href="#figuras">🔷 Figuras</a>
+  <a href="#quiz">🎯 Quiz</a>
+  <a href="#emocion">😊 ¿Cómo te fue?</a>
+</nav>
+
+<!-- ══ CONTENIDO PRINCIPAL ══ -->
+<main>
+
+  <!-- Sección 1: Números -->
+  <section id="numeros" class="tarjeta">
+    <h2>🔢 Números del 1 al 10</h2>
+    <p>Contamos objetos y aprendemos los números.</p>
+    <p>👆 Haz clic en las estrellas para contarlas:</p>
+    <div class="estrellas">
+      <span class="estrella" title="1">⭐</span>
+      <span class="estrella" title="2">⭐</span>
+      <span class="estrella" title="3">⭐</span>
+      <span class="estrella" title="4">⭐</span>
+      <span class="estrella" title="5">⭐</span>
+      <span class="estrella" title="6">⭐</span>
+      <span class="estrella" title="7">⭐</span>
+      <span class="estrella" title="8">⭐</span>
+      <span class="estrella" title="9">⭐</span>
+      <span class="estrella" title="10">⭐</span>
+    </div>
+    <p class="contador-estrellas" id="contador-estrellas">Haz clic en una estrella para contar 👆</p>
+  </section>
+
+  <!-- Sección 2: Sumas -->
+  <section id="suma" class="tarjeta">
+    <h2>➕ Sumas sencillas</h2>
+    <p>Sumar es <strong>juntar</strong> dos grupos de cosas.</p>
+    <p class="ejemplo">2 🍎 + 1 🍎 = 3 🍎</p>
+    <p style="margin-top:0.8rem; font-weight:700;">¡Ahora tú! Ingresa dos números:</p>
+    <div class="calc-box">
+      <input type="number" id="suma-a" min="0" max="20" value="2" />
+      <span class="operador">+</span>
+      <input type="number" id="suma-b" min="0" max="20" value="3" />
+      <button class="btn-calc" onclick="calcularSuma()">= ?</button>
+    </div>
+    <p class="resultado-calc" id="resultado-suma"></p>
+  </section>
+
+  <!-- Sección 3: Restas -->
+  <section id="resta" class="tarjeta">
+    <h2>➖ Restas sencillas</h2>
+    <p>Restar es <strong>quitar</strong> objetos de un grupo.</p>
+    <p class="ejemplo">5 🍊 − 2 🍊 = 3 🍊</p>
+    <p style="margin-top:0.8rem; font-weight:700;">¡Practica! Ingresa dos números:</p>
+    <div class="calc-box">
+      <input type="number" id="resta-a" min="0" max="20" value="5" />
+      <span class="operador">−</span>
+      <input type="number" id="resta-b" min="0" max="20" value="2" />
+      <button class="btn-calc" onclick="calcularResta()">= ?</button>
+    </div>
+    <p class="resultado-calc" id="resultado-resta"></p>
+  </section>
+
+  <!-- Sección 4: Figuras -->
+  <section id="figuras" class="tarjeta">
+    <h2>🔷 Figuras geométricas</h2>
+    <p>Toca una figura para conocer más sobre ella 👇</p>
+    <div class="figuras-grid">
+      <div class="figura-item" data-figura="circulo">
+        <span class="icono-fig">⭕</span>Círculo
+      </div>
+      <div class="figura-item" data-figura="cuadrado">
+        <span class="icono-fig">🟦</span>Cuadrado
+      </div>
+      <div class="figura-item" data-figura="triangulo">
+        <span class="icono-fig">🔺</span>Triángulo
+      </div>
+      <div class="figura-item" data-figura="rectangulo">
+        <span class="icono-fig">▭</span>Rectángulo
+      </div>
+      <div class="figura-item" data-figura="rombo">
+        <span class="icono-fig">🔷</span>Rombo
+      </div>
+      <div class="figura-item" data-figura="pentagono">
+        <span class="icono-fig">⬠</span>Pentágono
+      </div>
+    </div>
+    <div id="info-figura"></div>
+  </section>
+
+  <!-- Sección 5: Quiz -->
+  <section id="quiz" class="tarjeta">
+    <h2>🎯 ¡Pon a prueba lo que aprendiste!</h2>
+    <p>Responde la pregunta y gana una estrella ⭐</p>
+    <div class="quiz-box">
+      <div class="quiz-pregunta" id="quiz-pregunta">Cargando...</div>
+      <div class="quiz-opciones" id="quiz-opciones"></div>
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+      <button class="btn-nueva" onclick="nuevaPregunta()">🔄 Nueva pregunta</button>
+    </div>
+  </section>
+
+  <!-- Sección 6: Emoción -->
+  <section id="emocion" class="tarjeta">
+    <h2>😊 ¿Cómo te fue hoy?</h2>
+    <p>Marca la carita que mejor describe cómo te sientes:</p>
+    <div class="emociones">
+      <button class="emocion-btn" data-emocion="feliz">
+        😄<span class="lbl">Feliz</span>
+      </button>
+      <button class="emocion-btn" data-emocion="normal">
+        😐<span class="lbl">Más o menos</span>
+      </button>
+      <button class="emocion-btn" data-emocion="triste">
+        😢<span class="lbl">Triste</span>
+      </button>
+      <button class="emocion-btn" data-emocion="sorpresa">
+        😲<span class="lbl">Sorprendido</span>
+      </button>
+      <button class="emocion-btn" data-emocion="orgulloso">
+        🥳<span class="lbl">Orgulloso</span>
+      </button>
+    </div>
+    <p class="mensaje-emocion" id="mensaje-emocion"></p>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>© 2026 – Matemática 1° Primaria · UPRIT · Diseño Web Interactivo</p>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>
